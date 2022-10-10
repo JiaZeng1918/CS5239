@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Project and Paper Review Instructions</title>
+  <style>
+    :root{--b-font-main: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";--b-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;--b-txt: #2e3440;--b-bg-1: #fff;--b-bg-2: #eceff4;--b-line: #eceff4;--b-link: #bf616a;--b-btn-bg: #242933;--b-btn-txt: #fff;--b-focus: #88c0d0}*,::before,::after{box-sizing:border-box}html:focus-within{scroll-behavior:smooth}body{max-width:70ch;padding:0 1rem;margin:auto;background:var(--b-bg-1);font-family:var(--b-font-main);text-rendering:optimizeSpeed;line-height:1.5;color:var(--b-txt);-moz-tab-size:4;tab-size:4;word-break:break-word;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}h1,h2,h3,h4,h5,h6,p,ul,ol,dl,dd,details,blockquote,pre,figure,table,address,hr,fieldset,iframe,audio,video{margin:0 0 1.5rem}h1,h2,h3,h4,h5,h6{line-height:1.25;margin-top:2rem}h1{font-size:2rem}h2{font-size:1.5rem}h3{font-size:1.25rem}h4{font-size:1rem}h5{font-size:.875rem}h6{font-size:.75rem}a{color:var(--b-link);text-decoration:none}a:hover{text-decoration:underline}img,video,svg{max-width:100%;height:auto}embed,iframe,object{max-width:100%}iframe{border-style:none}abbr[title]{text-decoration:underline;text-decoration:underline dotted}blockquote{margin-left:0;padding:.5rem 0 .5rem 1.5rem;border-left:.25rem solid var(--b-txt)}blockquote>:last-child{margin-bottom:0}small{font-size:.875rem}sub,sup{font-size:.75em;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-0.25em}sup{top:-0.5em}hr{height:0;overflow:visible;border:0;border-bottom:1px solid var(--b-line)}pre,code,kbd,samp,tt,var{background:var(--b-bg-2);border-radius:.25rem;padding:.125rem .25rem;font-family:var(--b-font-mono);font-size:.875rem}pre{padding:1rem;border-radius:0;overflow:auto;white-space:pre}pre code{padding:0}details{display:block;padding:.5rem 1rem;background:var(--b-bg-2);border:1px solid var(--b-line);border-radius:.25rem}details>:last-child{margin-bottom:0}details[open]>summary{margin-bottom:1.5rem}summary{display:list-item;cursor:pointer;font-weight:bold}summary:focus{box-shadow:none}table{border-collapse:collapse;width:100%;text-indent:0}table caption{margin-bottom:.5rem}tr{border-bottom:1px solid var(--b-line)}td,th{padding:.5rem 0}th{text-align:left}ul,ol,dd{padding-left:2rem}li>ul,li>ol{margin-bottom:0}fieldset{padding:.5rem .75rem;border:1px solid var(--b-line);border-radius:.25rem}legend{padding:0 .25rem}label{cursor:pointer;display:block;margin-bottom:.25rem}button,input,select,textarea{margin:0;padding:.5rem .75rem;max-width:100%;background:var(--b-bg-2);border:0;border-radius:.25rem;font:inherit;line-height:1.125;color:var(--b-txt)}select,input:not([size]):not([type=button i]):not([type=submit i]):not([type=reset i]):not([type=checkbox i]):not([type=radio i]){width:100%}[type=color i]{min-height:2.125rem}select:not([multiple]):not([size]){padding-right:1.5rem;background-repeat:no-repeat;background-position:right .5rem center;-moz-appearance:none;-webkit-appearance:none;appearance:none}textarea{width:100%;resize:vertical}textarea:not([rows]){height:8rem}button,[type=button i],[type=submit i],[type=reset i]{-webkit-appearance:button;display:inline-block;text-align:center;white-space:nowrap;background:var(--b-btn-bg);color:var(--b-btn-txt);border:0;cursor:pointer;transition:opacity .25s}button:hover,[type=button i]:hover,[type=submit i]:hover,[type=reset i]:hover{opacity:.75}button[disabled],[type=button i][disabled],[type=submit i][disabled],[type=reset i][disabled]{opacity:.5}progress{vertical-align:middle}[type=search i]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}::-webkit-input-placeholder{color:inherit;opacity:.5}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}::-moz-focus-inner{border-style:none;padding:0}:-moz-focusring{outline:1px dotted ButtonText}:-moz-ui-invalid{box-shadow:none}[aria-busy=true i]{cursor:progress}[aria-controls]{cursor:pointer}[aria-disabled=true i],[disabled]{cursor:not-allowed}:focus,details:focus-within{outline:none;box-shadow:0 0 0 2px var(--b-focus)}@media(prefers-reduced-motion: reduce){html:focus-within{scroll-behavior:auto}*,::before,::after{animation-delay:-1ms !important;animation-duration:1ms !important;animation-iteration-count:1 !important;background-attachment:initial !important;scroll-behavior:auto !important;transition-delay:0 !important;transition-duration:0 !important}}select:not([multiple]):not([size]){background-image:url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg' fill='%232e3440'%3E%3Cpath d='M5 6l5 5 5-5 2 1-7 7-7-7 2-1z'/%3E%3C/svg%3E")}
+    body {
+      /* bamboo is too thin */
+      max-width: 80ch;
+    }
+    /* Add styling for captions, mainly to go under code blocks */
+    figcaption {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.header-section-number {
+      margin-right: 0.5em;
+    }
+    span.toc-section-number {
+      margin-right: 0.3em;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Project and Paper Review Instructions</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#form-a-team-of-5-students-before-8-oct-midnight."><span class="toc-section-number">1</span> Form a team of 5 students – before 8
+Oct, midnight.</a>
+<ul>
+<li><a href="#setup-a-method-of-collaboration-for-your-team"><span class="toc-section-number">1.1</span> Setup a method of collaboration
+for your team</a></li>
+</ul></li>
+<li><a href="#project-35-due-on-tue-15-nov-630pm"><span class="toc-section-number">2</span> Project (35%) – due on Tue, 15 Nov,
+6:30pm</a>
+<ul>
+<li><a href="#content-requirements"><span class="toc-section-number">2.1</span> Content requirements</a></li>
+<li><a href="#project-report-guidelines"><span class="toc-section-number">2.2</span> Project report guidelines</a></li>
+</ul></li>
+<li><a href="#paper-review-10-due-on-25-oct-630pm"><span class="toc-section-number">3</span> Paper review (10%) – due on 25 Oct,
+6:30pm</a>
+<ul>
+<li><a href="#paper-review-requirements"><span class="toc-section-number">3.1</span> Paper review requirements</a></li>
+</ul></li>
+<li><a href="#presentations-5-due-on-25-oct-and-1-nov-at-lecture-or-video-recording"><span class="toc-section-number">4</span> Presentations (5%) – due on 25 Oct
+and 1 Nov at lecture, or video recording</a>
+<ul>
+<li><a href="#presentation-requirements"><span class="toc-section-number">4.1</span> Presentation requirements</a></li>
+</ul></li>
+<li><a href="#appendix"><span class="toc-section-number">5</span>
+Appendix</a>
+<ul>
+<li><a href="#connecting-to-the-computers-in-soc"><span class="toc-section-number">5.1</span> Connecting to the computers in
+SoC</a></li>
+<li><a href="#list-of-machines"><span class="toc-section-number">5.2</span> List of machines</a></li>
+</ul></li>
+</ul>
+</nav>
+<p>Please follow these instructions during your work for the projects
+and for the paper review.</p>
+<h1 data-number="1" id="form-a-team-of-5-students-before-8-oct-midnight."><span class="header-section-number">1</span> Form a team of 5 students –
+before 8 Oct, midnight.</h1>
+<p>Under Canvas People, you can find a section titled “Teams”. Join a
+team under this section. The maximum number of students in a team is 5,
+and the minimum number of students in a team is 4. Use your team number
+to identify your team later on.</p>
+<p>Students that do not choose a team before the team formation deadline
+will be randomly allocated to a team.</p>
+<p>When you submit your work in Canvas, you will submit as a team. The
+latest submission by any of the team members will be graded, and the
+grade will be the same for all team members.</p>
+<h2 data-number="1.1" id="setup-a-method-of-collaboration-for-your-team"><span class="header-section-number">1.1</span> Setup a method of collaboration
+for your team</h2>
+<p>You might use Google Drive or a repository in GitHub. Choose a team
+leader that will book a presentation slot, and complete the
+administrative part of the submissions for the whole team.</p>
+<p>Beware that you should not use public repositories for your work.
+make sure that your repository is private.</p>
+<p>If you need to create a private Github repository, you can obtain one
+using Github Classroom by visiting the project <a href="https://classroom.github.com/a/k47572p8">link</a>. The first
+member of the team to access this link will be prompted to accept the
+assignment that gives your team access to the new repository. Create a
+new team by typing <code>teamXX</code> where <code>XX</code> stands for
+your team number from Canvas. For example, team 8 should name the
+repository <code>team08</code>. Use the same name for your Canvas
+submission for easy identification. The other member in the team will be
+able to see an existing team with your team id under “Join an existing
+team” section. The repository is empty. Use this repository for any
+scripts or code. It is not mandatory to create a repository for your
+team within Github Classroom.</p>
+<h1 data-number="2" id="project-35-due-on-tue-15-nov-630pm"><span class="header-section-number">2</span> Project (35%) – due on Tue, 15
+Nov, 6:30pm</h1>
+<p>We proposed seven projects for you. You may find their write-ups in
+Canvas Files, as html files. The projects topics are shown below:</p>
+<ul>
+<li>Project 1 - CPU Monitoring (Linux)</li>
+<li>Project 2 - Memory Monitoring (Linux)</li>
+<li>Project 3 - I/O Monitoring (Linux)</li>
+<li>Project 4 - Network Monitoring (Linux)</li>
+<li>Project 5 - I/O, Memory, CPU, and Network Monitoring (Windows)</li>
+<li>Project 6 - Data Plots and Visualization (Colab)</li>
+<li>Project 7 - Performance of Machine Learning Applications
+(Colab)</li>
+</ul>
+<p>Each project has a some guided tasks and ends with at least one
+open-ended task. You should choose one of the projects to work on it as
+a team. At the end of the semester, you are required to submit under
+Canvas Assignments –&gt; Project, a report PDF file (teamXX.pdf) or a
+<code>zip</code> archive containing:</p>
+<ul>
+<li>a report (teamXX.pdf) - solving the guided tasks and the open-ended
+task of the chosen project</li>
+<li>any additional scripts or code that you have used for your
+project</li>
+</ul>
+<p>For the Linux projects, you should try to install a Linux
+distribution natively on your computer. A Linux distribution running in
+a virtualization environment (VM - virtual machine) will not provide
+measurements for most of the counters used for performance measurement.
+If you can’t install Linux natively, but you are working on a
+Linux-based project, you can use a set of machines located in the School
+of Computing. Details about how to access these machines can be found in
+<a href="#appendix">Appendix</a>.</p>
+<h2 data-number="2.1" id="content-requirements"><span class="header-section-number">2.1</span> Content requirements</h2>
+<ul>
+<li>You are expected to expand and develop your project based on the
+open-ended tasks. A considerable part of your project report must focus
+on performance analysis of the open-ended task.</li>
+<li>You can use any tools you want, even if they are not specified in
+the project writeup.</li>
+<li>Use graphs (plots) and visual diagrams to explain and illustrate
+your points.</li>
+<li>Do not include code snippets and scripts in your report, unless they
+are essential for the understanding of the content. When appropriate,
+you can include commands that were useful in your project.</li>
+<li>You are allowed to propose and analyse a different open-ended task
+with prior approval from Cristina (ccris@comp.nus.edu.sg). The newly
+proposed task must be related to the big topic of the project.</li>
+</ul>
+<h2 data-number="2.2" id="project-report-guidelines"><span class="header-section-number">2.2</span> Project report guidelines</h2>
+<ul>
+<li>Mention which project you attempted in the title (using the project
+number).</li>
+<li>Maximum 20 pages long in PDF format.</li>
+<li>All text in your report should be no smaller than 11-point Arial
+(any typeface and size is ok so long as it’s readable English and not
+trying to bypass the page limit).</li>
+<li>All page margins (top, bottom, left, right) should be at least 1
+inch (2.54cm) and have visually distinct headers for each task.</li>
+<li>It should be self-contained. If you write part of your report
+somewhere else and reference that in your submitted report, we reserve
+the right to ignore any content outside the submitted document. An
+exception is referencing a document containing measurement data that you
+created as part of the assignment - we encourage you to do this.</li>
+<li>If headers, spacing or diagrams cause your report to slightly exceed
+the page limit, that’s ok - we prefer well-organised, easily readable
+reports.</li>
+</ul>
+<h1 data-number="3" id="paper-review-10-due-on-25-oct-630pm"><span class="header-section-number">3</span> Paper review (10%) – due on 25
+Oct, 6:30pm</h1>
+<p>You may find under Canvas Files –&gt; “Papers to review” a list of
+papers suggested for each project. Each team must choose one paper and
+prepare a critical review in pdf format. You might choose one of the
+papers we recommend (for all projects), or you may find another paper of
+interest and review it. Before starting your review, read the paper “How
+to Read a Paper” found in Canvas Files. Use the information found <a href="https://blogs.lse.ac.uk/impactofsocialsciences/2016/05/09/how-to-read-and-understand-a-scientific-paper-a-guide-for-non-scientists/">here</a>
+and <a href="https://researchguides.uic.edu/c.php?g=252202&amp;p=1684812">here</a>
+to prepare your review.</p>
+<p>The review for the chosen paper must be submitted in Canvas
+Assignments –&gt; Paper review before 25 Oct, 6:30pm.</p>
+<p><strong>If you do not choose one of the suggested papers, you are
+required to check and get approval from <a href="mailto:ccris@comp.nus.edu.sg">Cristina</a> before you start
+preparing a review for another paper.</strong></p>
+<h2 data-number="3.1" id="paper-review-requirements"><span class="header-section-number">3.1</span> Paper review requirements</h2>
+<ul>
+<li>Mention which project you are attempting, and which paper you are
+reviewing</li>
+<li>Maximum 3 pages long in PDF format (similar requirements as for the
+project report about <a href="#project-report-guidelines">formatting</a>.</li>
+<li>Start your review with a short summary of the paper</li>
+<li>Avoid repeating information from the paper if you do not plan to
+present your opinion about it.</li>
+</ul>
+<h1 data-number="4" id="presentations-5-due-on-25-oct-and-1-nov-at-lecture-or-video-recording"><span class="header-section-number">4</span> Presentations (5%) – due on 25
+Oct and 1 Nov at lecture, or video recording</h1>
+<p>The presentations should be done as a team, in one of the following
+formats:</p>
+<ul>
+<li>In-person presentation on 25 Oct or 1 Nov at lecture (LT15). The
+team leader must book a presentation slot for the whole team <strong>by
+18 Oct, 6:30pm</strong>. Use the <strong>team number</strong> when
+choosing a presentation slot <a href="https://doodle.com/meeting/participate/id/aAPZBl3e">here</a>.
+<strong>Bookings made without including the team number, or for multiple
+time slots will be cancelled.</strong></li>
+<li>Video recording submission on Canvas Assignment –&gt; Presentation
+Video before 1 Nov, 6:30pm. We will assume that the teams that do not
+book a presentation slot before 18 Oct will submit their presentation as
+a recording.</li>
+</ul>
+<h2 data-number="4.1" id="presentation-requirements"><span class="header-section-number">4.1</span> Presentation requirements</h2>
+<p>The presentation can be done based on the paper that was reviewed, or
+based on the project report, or include a combination of both. The
+project report can be finalised after the presentation is done. You may
+see this presentation as a checkpoint for your work. Explain what you
+have learnt from the paper review or from other sources, and what you
+plan to achieve in the project.</p>
+<p>The presentation should follow the following guidelines:</p>
+<ul>
+<li>maximum 12 minutes long</li>
+<li>use slides or a document to guide your presentation (maximum of
+12-15 slides would suffice)</li>
+<li>it is not mandatory for all team members to present, but you should
+use at least 2-3 presenters from your team</li>
+<li>you are not required to attend presentation done by other teams, but
+you are allowed to be present if you think that it might be useful for
+you</li>
+</ul>
+<h1 data-number="5" id="appendix"><span class="header-section-number">5</span> Appendix</h1>
+<h2 data-number="5.1" id="connecting-to-the-computers-in-soc"><span class="header-section-number">5.1</span> Connecting to the computers in
+SoC</h2>
+<p>You are given access to the machines in the Parallel and Distributed
+Computing Lab located in COM1-B1-02. To connect to these computers, you
+should first <strong>use your SoC id (Unix id) to connect to
+<code>stu.comp.nus.edu.sg</code>.</strong> If you do not have an SoC id,
+you can create one at this <a href="https://mysoc.nus.edu.sg/~newacct">link</a>. With your Unix id, eg
+<code>soc_unix_id</code>, connect to <code>stu.comp.nus.edu.sg</code>
+with:</p>
+<pre><code>&gt; ssh soc_unix_id@stu.comp.nus.edu.sg</code></pre>
+<p>Now, you can remotely connect to any of the machines in the lab.
+These run Ubuntu 20.04.3 LTS on the x86_64 architecture. The hostnames
+span the range: <code>soctf-pdc-001</code> to
+<code>soctf-pdc-024</code>.</p>
+<p><strong>Direct login is not enabled to all lab machines</strong>
+because some nodes are managed by Slurm Workload Manager. You can use
+the nodes that have direct login enabled. As of 6 Oct, direct ssh access
+is disabled to <code>soctf-pdc-[005-008,013-016,019,021]</code> You can
+use Slurm to submit your batch jobs, as well. Updated Slurm guide can be
+found <a href="https://bit.ly/cs3210-slurm-guide">here</a>.</p>
+<p>From within <code>stu</code>, use the username and password provided
+to you in Canvas Gradebook (under <code>Username and Password</code>
+field, you will find a comment) to connect to any of the lab machines
+mentioned above. For example, if your username is <code>username</code>,
+and you choose <code>soctf-pdc-011</code>, you can do:</p>
+<pre><code>&gt; ssh username@soctf-pdc-011</code></pre>
+<p>You can change your default password by running <code>passwd</code>
+in the console. Note that each account on each machine is independent
+(there is no automatic synchronization among machines). This means that
+changing the password on one machine will not change the passwords on
+the other machines. Also, files placed on the home directory of one
+machine will not be automatically copied to other machines (you need to
+manually copy them). Use <code>scp</code>, <code>wget</code> or
+<code>git</code> to transfer files to and from the lab machines.</p>
+<p>To login without inputting a password, configure SSH key-based
+authentication. Use <code>ssh-keygen</code> and <code>ssh-copy-id</code>
+to copy the public key to the remote node.</p>
+<h2 data-number="5.2" id="list-of-machines"><span class="header-section-number">5.2</span> List of machines</h2>
+<ul>
+<li><code>soctf-pdc-001</code> - <code>soctf-pdc-008</code>: Xeon Silver
+4114 (10 cores, 20 threads)</li>
+<li><code>soctf-pdc-009</code> - <code>soctf-pdc-016</code>: Intel Core
+i7-7700 (4 cores, 8 threads)</li>
+<li><code>soctf-pdc-018</code> - <code>soctf-pdc-019</code>: Dual-socket
+Xeon Silver 4114 (2*10 cores, 40 threads)</li>
+<li><code>soctf-pdc-020</code> - <code>soctf-pdc-021</code>: Intel Core
+i7-9700 (8 cores, 8 threads)</li>
+<li><code>soctf-pdc-022</code> - <code>soctf-pdc-024</code>: Intel Xeon
+W-2245 (8 cores, 16 threads)</li>
+</ul>
+</body>
+</html>
