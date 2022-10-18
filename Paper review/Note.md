@@ -172,9 +172,130 @@ Schedule the task to optimize available capacity and concurrency.
 
 
 
+##  3 SYSTEM DESIGN System design
 
 
-##  SYSTEM DESIGN System design
+
+#### Globally maximize utilization
+
+
+
+#### Optimize for deployment at scale
+
+
+
+#### Design for agility and adaptability
+
+
+
+### 3.1 Video accelerator holistic systems design
+
+#### Overall design
+
+![image-20221018144833564](C:\Users\Jia\AppData\Roaming\Typora\typora-user-images\image-20221018144833564.png)
+
+Each cluster operates independently and has:
+
+1. A number of VCU machines
+2. Non-accelerated machines
+
+
+
+VCU ASIC contains:
+
+1. Multiple encoder cores
+2. Sufficient decode cores
+3. Network-on-chip (NoC)
+4. DRAM bandwidth
+
+
+
+#### ASIC level
+
+Select parts of transcoding to implement in silicon based on maturity and computational cost.
+
+
+
+Candidates:
+
+1. Encoding data path is the most expensive in computing and DRAM bandwidth. Primary candidate
+2. Decoding is the next dominant computing cost. Second candidate
+3. The rest of the system is left flexible
+
+
+
+#### Board and rack levels
+
+Deploy multiple VCUs per host to **amortize overheads** and **avoid standing encoder throughput**
+
+
+
+#### Cluster level
+
+Work graph: cluster-wide work queue onto parallel worker nodes (includes both transcoding and non-transcoding steps)
+
+Each VCU worker node runs a process per transcode to constrain errors to a single step.
+
+This scheduler is fundamental to maximizing VCU utilization data center-wide.
+
+
+
+The key to maximizing VCU utilization: maximizing the encoder utilization. And the MOT is foundational for encoder utilization. 
+
+
+
+Method: multiple MOTs and SOTs in parallel are performed to boost encoder and VCU utilization.
+
+
+
+### 3.2 VCU encoder core design
+
+Encoder core shares some architecture features with other prior work: 
+
+1. Pipelined architecture
+2. Local reference store for motion estimation and other state
+3. Acceleration of entropy encoding
+
+However, all above is optimized for data center quality, deployment, and  power/performance/area targets
+
+
+
+#### Main functional blocks in the pipeline
+
+![image-20221018161837087](C:\Users\Jia\AppData\Roaming\Typora\typora-user-images\image-20221018161837087.png)
+
+
+
+The basic element of the pipelined computation:
+
+1. Macroblock (H.264, 16x16) 
+2. Superblock (VP9, 64x64)
+
+
+
+
+
+#### Encoder core pipeline stages
+
+
+
+
+
+#### Data flow and memory system
+
+
+
+
+
+
+
+### 3.3 System balance and software co-design
+
+
+
+
+
+### 3.4 High-level synthesis for agility
 
 
 
