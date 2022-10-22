@@ -277,25 +277,124 @@ The basic element of the pipelined computation:
 
 #### Encoder core pipeline stages
 
-
+1. First stage is the classic stages of a block-based video encoding algorithm: motion estimation, sub-block partitioning, and rate-distortion-based transform and prediction mode selection
+2. Second stage: entropy encoding
+   1. decoding of the macroblock
+   2. temporal filtering for creating of VP9’s alternate reference frames
+3. Final stage: loop filtering and lossless frame buffer compression
 
 
 
 #### Data flow and memory system
 
+The DRAM reader block:
+
+1. The interface to the NoC subsystem, and is responsible for fulfilling requests for data from other blocks, primarily the reference store
+2.  Includes the preprocessor and frame buffer decompression logic
+
+The DRAM writer block is the same as DRAM reader block (write to DRAM and interface to the NoC subsystem)
 
 
 
+#### Control and stateless operation
+
+The bandwidth overhead from transferring state from DRAM is relatively small compared to the bandwidth needed to load reference frames.
+
+While an embedded encoder (in a camera, for example) might prefer to retain state across frames to simplify processing its single stream, this stateless architecture is better for a data center ASIC where multiple streams of differing resolutions and frame rates (and hence processing duration) are interleaved
 
 
 
 ### 3.3 System balance and software co-design
+
+#### Provisioning and System Balance
+
+![image-20221022133234808](C:\Users\Jia\AppData\Roaming\Typora\typora-user-images\image-20221022133234808.png)
+
+Each machine has  2 accelerator trays.
+
+Each accelerator tray contains 5 VCU cards.
+
+Each VCU card contains 2 VCUs.
+
+Given  20 VCUs per host
+
+
+
+ VCU DRAM bandwidth: Each encoder core can encode 2160p in real-time, up to 60 FPS (frames-per-second) using three reference frames
+
+
+
+VCU DRAM capacity
+
+Network bandwidth
+
+
+
+#### Co-Design for fungibility and iterative design
+
+Software and hardware: loosely coupled to  facilitate parallel development pre-silicon and continuous iteration post-silicon
+
+The codec cores in the VCU are programmed as opaque memories by the on-chip management firmware. 
+
+Userspace command: : run-on-core, copy-from-device-to-host, copy-from-host-to-device, and wait-for-done
+
+
+
+Assuming that multiple userspace processes would be needed to reach peak utilization at the VCU level since we use a process-per-transcode model and the VCU is fast enough to handle multiple simultaneous streams.
+
+Schedule: round-robin
+
+
+
+Iterate on userspace software in data center is easier than on any lower level software (disruption, reboot)
+
+
+
+#### Co-design for work scheduling & resiliency
+
+Scheduler: online multi-dimensional bin-packing scheduler (to realize the maximum per-VCU and data center-wide VCU utilization)
+
+1. ensures that no single VCU becomes completely saturated and no video transcoding task (a step in the dependency graph) becomes resource starved
+2. Each cluster has multiple logical "pools" of computing defined by use case (upload, live) and priority (critical, normal, batch) 
+3. Each pool has its own scheduler and multiple workers of different types (e.g. transcoding, thumbnail extraction, generating search signals, fingerprinting, notifications, etc), some with exclusive access to a VCU and some doing regular CPU based processing
+4. Each type of worker defines its own set of named scalar resource dimensions and a capacity for each
+5. Use synthetic resources to provide an additional level of control (for example, to limit the amount of software decode to indirectly save PCI Express bandwidth which is otherwise hard to attribute to a specific process)
+6. The scheduler is horizontally scaled due to a large number of workers and the need for low latency
+7. In the event of an error, the work is rescheduled on another VCU or with software transcoding, leveraging the existing video processing framework retry mechanism
+
+
+
+![image-20221022142153444](C:\Users\Jia\AppData\Roaming\Typora\typora-user-images\image-20221022142153444.png)
 
 
 
 
 
 ### 3.4 High-level synthesis for agility
+
+
+
+
+
+#### High Productivity and Code Maintainability
+
+HLS helps to reduce the code size and save time compared with traditional Verilog approach.
+
+#### Massively Accelerated Verification
+
+The standard software development tool flows helps to make verification. HLS exposed over 99% of the functional bugs during C++ testing, before ever running full VCU RTL simulation
+
+#### Focusing Engineering Effort on High-Value Problems
+
+Skip strenuous verification of the microarchitecture since the HLS flow does not suffer the human errors that ail traditional Verilog designs
+
+#### Design Space Exploration
+
+With our flow, we were able to try numerous architectures and algorithms to find optimal quality-silicon area trade-offs for the numerous design choices in many encoding problems. Saving the budget.
+
+#### Late Feature Flexibility
+
+Benefit to further development: For subsequent chip designs, our design flow will make migration to new silicon process nodes and clock frequency targets effortless.
 
 
 
